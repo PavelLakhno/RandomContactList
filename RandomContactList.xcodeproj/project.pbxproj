@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE590DA029812294009D96AE /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE590D9F29812294009D96AE /* ContactListViewController.swift */; };
 		CE590DA72981275F009D96AE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE590DA62981275F009D96AE /* NetworkManager.swift */; };
+		CE637EB729840FB6005AE0D6 /* User.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE637EB529840FB6005AE0D6 /* User.xcdatamodeld */; };
 		CE6C8B6529811EF000400726 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C8B6429811EF000400726 /* AppDelegate.swift */; };
 		CE6C8B6729811EF000400726 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C8B6629811EF000400726 /* SceneDelegate.swift */; };
 		CE6C8B6929811EF000400726 /* DetailContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C8B6829811EF000400726 /* DetailContactViewController.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		CE590D9F29812294009D96AE /* ContactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
 		CE590DA62981275F009D96AE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		CE637EB629840FB6005AE0D6 /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
 		CE6C8B6129811EF000400726 /* RandomContactList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomContactList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6C8B6429811EF000400726 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE6C8B6629811EF000400726 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				CE590DA52981273D009D96AE /* Services */,
 				CE6C8B7829811F0500400726 /* Storyboards */,
 				CE590DA829812783009D96AE /* Source */,
+				CE637EB529840FB6005AE0D6 /* User.xcdatamodeld */,
 			);
 			path = RandomContactList;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				CE6C8B6929811EF000400726 /* DetailContactViewController.swift in Sources */,
 				CE590DA029812294009D96AE /* ContactListViewController.swift in Sources */,
 				CE6C8B6529811EF000400726 /* AppDelegate.swift in Sources */,
+				CE637EB729840FB6005AE0D6 /* User.xcdatamodeld in Sources */,
 				CE6C8B6729811EF000400726 /* SceneDelegate.swift in Sources */,
 				CE6C8B7D2981201300400726 /* RandomUser.swift in Sources */,
 			);
@@ -420,6 +424,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CE637EB529840FB6005AE0D6 /* User.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CE637EB629840FB6005AE0D6 /* User.xcdatamodel */,
+			);
+			currentVersion = CE637EB629840FB6005AE0D6 /* User.xcdatamodel */;
+			path = User.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CE6C8B5929811EF000400726 /* Project object */;
 }

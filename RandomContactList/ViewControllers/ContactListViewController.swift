@@ -16,6 +16,12 @@ class ContactListViewController: UITableViewController {
         tableView.rowHeight = 60
         downloadData()
         setupRefreshControl()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(downloadData)
+        )
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -83,10 +89,10 @@ extension ContactListViewController {
 
     @objc private func downloadData() {
         
-        NetworkManager.shared.fetchUsers(from: URLConstants.randomUsersAPI.rawValue) { [weak self] result in
+        NetworkManager.shared.fetchUsers(from: URLConstants.randomUserAPI.rawValue) { [weak self] result in
             switch result {
             case .success(let users):
-                self?.contacts = users.results
+                self?.contacts.insert(contentsOf: users.results, at: 0)
                 self?.tableView.reloadData()
                 if self?.refreshControl != nil {
                     self?.refreshControl?.endRefreshing()
