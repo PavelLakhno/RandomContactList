@@ -16,7 +16,7 @@ struct Users: Decodable {
 struct User: Decodable {
     let gender: String?
     let name: Name?
-    //let location: Location?
+    let location: Location?
     let email: String?
     let login: Login?
     let dob, registered: Dob?
@@ -31,8 +31,8 @@ struct User: Decodable {
         let nameDict = value["name"] as? [String: String] ?? [:]
         name = Name(value: nameDict)
         
-        //let locationDict = value["location"] as? [String: Any] ?? [:]
-        //location = Location(value: locationDict)
+        let locationDict = value["location"] as? [String: Any] ?? [:]
+        location = Location(value: locationDict)
         
         email = value["email"] as? String
         
@@ -91,7 +91,7 @@ struct ID: Decodable {
 struct Location: Decodable {
     let street: Street?
     let city, state, country: String?
-    let postcode: Int?
+    //let postcode: Int?
     let coordinates: Coordinates?
     let timezone: Timezone?
     
@@ -101,7 +101,7 @@ struct Location: Decodable {
         city = value["city"] as? String
         state = value["state"] as? String
         country = value["country"] as? String
-        postcode = value["postcode"] as? Int
+        //postcode = value["postcode"] as? Int
         
         let coordinateDict = value["coordinate"] as? [String: String] ?? [:]
         coordinates = Coordinates(value: coordinateDict)

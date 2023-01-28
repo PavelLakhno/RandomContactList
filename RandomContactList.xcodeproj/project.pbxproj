@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE47ACA02985568E00F17EBA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47AC9F2985568E00F17EBA /* DataManager.swift */; };
 		CE590DA029812294009D96AE /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE590D9F29812294009D96AE /* ContactListViewController.swift */; };
 		CE590DA72981275F009D96AE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE590DA62981275F009D96AE /* NetworkManager.swift */; };
-		CE637EB729840FB6005AE0D6 /* User.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE637EB529840FB6005AE0D6 /* User.xcdatamodeld */; };
 		CE6C8B6529811EF000400726 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C8B6429811EF000400726 /* AppDelegate.swift */; };
 		CE6C8B6729811EF000400726 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C8B6629811EF000400726 /* SceneDelegate.swift */; };
 		CE6C8B6929811EF000400726 /* DetailContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C8B6829811EF000400726 /* DetailContactViewController.swift */; };
@@ -17,12 +17,13 @@
 		CE6C8B6E29811EF200400726 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6C8B6D29811EF200400726 /* Assets.xcassets */; };
 		CE6C8B7129811EF200400726 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6C8B6F29811EF200400726 /* LaunchScreen.storyboard */; };
 		CE6C8B7D2981201300400726 /* RandomUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C8B7C2981201300400726 /* RandomUser.swift */; };
+		CE9A1A10298527A100232527 /* RandomContactList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE9A1A0E298527A100232527 /* RandomContactList.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE47AC9F2985568E00F17EBA /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		CE590D9F29812294009D96AE /* ContactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
 		CE590DA62981275F009D96AE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		CE637EB629840FB6005AE0D6 /* User.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = User.xcdatamodel; sourceTree = "<group>"; };
 		CE6C8B6129811EF000400726 /* RandomContactList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomContactList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6C8B6429811EF000400726 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE6C8B6629811EF000400726 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +33,7 @@
 		CE6C8B7029811EF200400726 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE6C8B7229811EF200400726 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE6C8B7C2981201300400726 /* RandomUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUser.swift; sourceTree = "<group>"; };
+		CE9A1A0F298527A100232527 /* RandomContactList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RandomContactList.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,7 @@
 		CE590DA52981273D009D96AE /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CE47AC9F2985568E00F17EBA /* DataManager.swift */,
 				CE590DA62981275F009D96AE /* NetworkManager.swift */,
 			);
 			path = Services;
@@ -86,7 +89,7 @@
 				CE590DA52981273D009D96AE /* Services */,
 				CE6C8B7829811F0500400726 /* Storyboards */,
 				CE590DA829812783009D96AE /* Source */,
-				CE637EB529840FB6005AE0D6 /* User.xcdatamodeld */,
+				CE9A1A0E298527A100232527 /* RandomContactList.xcdatamodeld */,
 			);
 			path = RandomContactList;
 			sourceTree = "<group>";
@@ -199,10 +202,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE590DA72981275F009D96AE /* NetworkManager.swift in Sources */,
+				CE47ACA02985568E00F17EBA /* DataManager.swift in Sources */,
+				CE9A1A10298527A100232527 /* RandomContactList.xcdatamodeld in Sources */,
 				CE6C8B6929811EF000400726 /* DetailContactViewController.swift in Sources */,
 				CE590DA029812294009D96AE /* ContactListViewController.swift in Sources */,
 				CE6C8B6529811EF000400726 /* AppDelegate.swift in Sources */,
-				CE637EB729840FB6005AE0D6 /* User.xcdatamodeld in Sources */,
 				CE6C8B6729811EF000400726 /* SceneDelegate.swift in Sources */,
 				CE6C8B7D2981201300400726 /* RandomUser.swift in Sources */,
 			);
@@ -426,13 +430,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		CE637EB529840FB6005AE0D6 /* User.xcdatamodeld */ = {
+		CE9A1A0E298527A100232527 /* RandomContactList.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				CE637EB629840FB6005AE0D6 /* User.xcdatamodel */,
+				CE9A1A0F298527A100232527 /* RandomContactList.xcdatamodel */,
 			);
-			currentVersion = CE637EB629840FB6005AE0D6 /* User.xcdatamodel */;
-			path = User.xcdatamodeld;
+			currentVersion = CE9A1A0F298527A100232527 /* RandomContactList.xcdatamodel */;
+			path = RandomContactList.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

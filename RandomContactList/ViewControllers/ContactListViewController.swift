@@ -14,7 +14,7 @@ class ContactListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 60
-        downloadData()
+        applyNetworking()
         setupRefreshControl()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
@@ -27,6 +27,21 @@ class ContactListViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailVC = segue.destination as? DetailContactViewController {
             detailVC.result = sender as? User
+        }
+    }
+    
+    private func applyNetworking() {
+         
+        DataManager.shared.fetchData { [unowned self] response in
+            
+            if response.count == 0 {
+                print("Data from Api")
+                self.downloadData()
+            } else {
+                print("Data from Coredata.")
+                self.contacts = response
+                self.tableView.reloadData()
+            }
         }
     }
      
