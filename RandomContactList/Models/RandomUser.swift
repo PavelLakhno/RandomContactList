@@ -18,13 +18,14 @@ struct User: Decodable {
     let name: Name?
     let location: Location?
     let email: String?
-    let login: Login?
-    let dob, registered: Dob?
+    //let login: Login?
+    //let dob, registered: Dob?
     let phone, cell: String?
-    let id: ID?
+    //let id: ID?
     let picture: Picture?
-    let nat: String?
+    //let nat: String?
     
+    /*
     init(value: [String: Any]) {
         gender = value["gender"] as? String
         
@@ -62,6 +63,8 @@ struct User: Decodable {
         guard let results = value["results"] as? [[String: Any]] else { return [] }
         return results.compactMap { User(value: $0)}
     }
+     */
+
 
 }
 
@@ -91,7 +94,7 @@ struct ID: Decodable {
 struct Location: Decodable {
     let street: Street?
     let city, state, country: String?
-    //let postcode: Int?
+    /*
     let coordinates: Coordinates?
     let timezone: Timezone?
     
@@ -101,13 +104,19 @@ struct Location: Decodable {
         city = value["city"] as? String
         state = value["state"] as? String
         country = value["country"] as? String
-        //postcode = value["postcode"] as? Int
         
         let coordinateDict = value["coordinate"] as? [String: String] ?? [:]
         coordinates = Coordinates(value: coordinateDict)
         
         let timezoneDict = value["timezone"] as? [String: String] ?? [:]
         timezone = Timezone(value: timezoneDict)
+    }
+    */
+    init(street: Street, city: String, state: String, country: String) {
+        self.street = street
+        self.city = city
+        self.country = country
+        self.state = state
     }
 }
 
@@ -129,6 +138,11 @@ struct Street: Decodable {
     init(value: [String: Any]) {
         number = value["number"] as? Int
         name = value["name"] as? String
+    }
+    
+    init(number: Int, name: String) {
+        self.number = number
+        self.name = name
     }
 }
 
@@ -176,12 +190,17 @@ struct Name: Decodable {
 
 // MARK: - Picture
 struct Picture: Decodable {
-    let large, medium, thumbnail: String?
+    let large, thumbnail: String?
     
     init(value: [String: String]) {
         large = value["large"]
-        medium = value["medium"]
+        //  medium = value["medium"]
         thumbnail = value["thumbnail"]
+    }
+    
+    init(large: String, thumbnail: String) {
+        self.large = large
+        self.thumbnail = thumbnail
     }
 }
 

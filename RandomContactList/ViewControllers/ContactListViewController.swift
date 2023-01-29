@@ -107,8 +107,11 @@ extension ContactListViewController {
         NetworkManager.shared.fetchUsers(from: URLConstants.randomUserAPI.rawValue) { [weak self] result in
             switch result {
             case .success(let users):
-                self?.contacts.insert(contentsOf: users.results, at: 0)
-                self?.tableView.reloadData()
+                for user in users.results {
+                    DataManager.shared.save(user)
+                    self?.contacts.insert(contentsOf: users.results, at: 0)
+                    self?.tableView.reloadData()
+                }
                 if self?.refreshControl != nil {
                     self?.refreshControl?.endRefreshing()
                 }
