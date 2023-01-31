@@ -2,7 +2,7 @@
 //  DataManager.swift
 //  RandomContactList
 //
-//  Created by user on 28.01.2023.
+//  Created by Pavel Lakhno on 28.01.2023.
 //
 
 import Foundation
@@ -36,7 +36,7 @@ class DataManager {
             let userStorage = try viewContext.fetch(fetchRequest)
             var users: [User] = []
             
-            for data in userStorage as [NSManagedObject] {
+            for data in userStorage {
                 let gender = data.value(forKey: "gender") as? String ?? ""
                 let firstName = data.value(forKey: "firstName") as? String ?? ""
                 let lastName = data.value(forKey: "lastName") as? String ?? ""
@@ -46,7 +46,11 @@ class DataManager {
                 let pictureLarge = data.value(forKey: "pictureLarge") as? String ?? ""
                 let picture = Picture(large: pictureLarge, thumbnail: pictureLittle)
                 let phone = data.value(forKey: "phone") as? String ?? ""
-                //let age = data.value(forKey: "age") as? Int ?? -1
+                
+                let age = data.value(forKey: "age") as? Int ?? -1
+                let date = data.value(forKey: "date") as? String ?? ""
+                let dob = Dob.init(date: date, age: age)
+                
                 let streetName = data.value(forKey: "streetName") as? String ?? ""
                 let streetNumber = data.value(forKey: "streetNumber") as? Int ?? -1
                 let street = Street.init(number: streetNumber, name: streetName)
@@ -54,8 +58,8 @@ class DataManager {
                 let country = data.value(forKey: "country") as? String ?? ""
                 let state = data.value(forKey: "state") as? String ?? ""
                 let location = Location.init(street: street, city: city, state: state, country: country)
-                let object = User.init(gender: gender, name: name, location: location, email: email, phone: phone, cell: "", picture: picture)
-                users.append(object)
+                let user = User.init(gender: gender, name: name, location: location, email: email, dob: dob, phone: phone, picture: picture)
+                users.append(user)
             }
 
             completion(users)
@@ -64,11 +68,11 @@ class DataManager {
         }
     }
                        
-    
-    //func save(_ newUser: User, completion: (UserStorage) -> Void) {
+
     func save(_ newUser: User) {
         let user = UserStorage(context: viewContext)
-        user.title = newUser.name?.title
+
+        user.age = Int32(newUser.dob?.age ?? 0)
         user.firstName = newUser.name?.first
         user.lastName = newUser.name?.last
         user.email = newUser.email
@@ -77,14 +81,32 @@ class DataManager {
         user.gender = newUser.gender
         user.phone = newUser.phone
         user.streetName = newUser.location?.street?.name
-        //user.streetNumber = newUser.location?.street?.number
+        user.streetNumber = Int32(newUser.location?.street?.number ?? 0)
         user.pictureLittle = newUser.picture?.thumbnail
         user.pictureLarge = newUser.picture?.large
-        
-        //completion(user)
+
         saveContext()
     }
 
+    
+    func delete(user : User) {
+        let fetchRequest = UserStorage.fetchRequest()
+        
+        do {
+            let userStorage = try viewContext.fetch(fetchRequest)
+            
+            for newUser in userStorage {
+                if newUser.lastName == user.name?.last {
+                    viewContext.delete(newUser)
+                }
+            }
+        } catch (let error) {
+            print("request could not proceed because of the following Error: \(error.localizedDescription)")
+        }
+        
+        saveContext()
+    }
+     
     
     // MARK: - Core Data Saving support
     func saveContext () {

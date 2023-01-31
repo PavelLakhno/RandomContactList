@@ -2,7 +2,7 @@
 //  DetailContactViewController.swift
 //  RandomContactList
 //
-//  Created by user on 25.01.2023.
+//  Created by Pavel Lakhno on 25.01.2023.
 //
 
 import UIKit

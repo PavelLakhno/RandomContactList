@@ -2,7 +2,7 @@
 //  ContactListViewController.swift
 //  RandomContactList
 //
-//  Created by user on 25.01.2023.
+//  Created by Pavel Lakhno on 25.01.2023.
 //
 
 import UIKit
@@ -13,7 +13,7 @@ class ContactListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 60
+        tableView.rowHeight = 80
         applyNetworking()
         setupRefreshControl()
         
@@ -39,7 +39,7 @@ class ContactListViewController: UITableViewController {
                 self.downloadData()
             } else {
                 print("Data from Coredata.")
-                self.contacts = response
+                self.contacts = response.reversed()
                 self.tableView.reloadData()
             }
         }
@@ -87,6 +87,8 @@ extension ContactListViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
+            let user = contacts[indexPath.row]
+            DataManager.shared.delete(user: user)
             contacts.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
@@ -109,6 +111,7 @@ extension ContactListViewController {
             case .success(let users):
                 for user in users.results {
                     DataManager.shared.save(user)
+                    //self?.contacts.append(user)
                     self?.contacts.insert(contentsOf: users.results, at: 0)
                     self?.tableView.reloadData()
                 }
