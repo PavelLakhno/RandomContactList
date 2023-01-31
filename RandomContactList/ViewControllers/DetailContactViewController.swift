@@ -10,8 +10,11 @@ import UIKit
 class DetailContactViewController: UIViewController {
 
     @IBOutlet var userImageView: UIImageView!
-    @IBOutlet var firstNameLabel: UILabel!
-    @IBOutlet var lastNameLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var ageLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var adressLabel: UILabel!
     
     var result: User!
     
@@ -25,8 +28,11 @@ class DetailContactViewController: UIViewController {
     }
     
     private func setValues(with user: User) {
-        firstNameLabel.text = result.name?.first
-        lastNameLabel.text = result.name?.last
+        nameLabel.text = "\(user.name?.first ?? "") \(user.name?.last ?? "")"
+        ageLabel.text = "\(user.dob?.age ?? -1) years"
+        emailLabel.text = user.email
+        phoneLabel.text = user.phone
+        adressLabel.text = "\(user.location?.country ?? ""), \(user.location?.city ?? "")"
         
         if let imageURL = user.picture?.large {
             NetworkManager.shared.fetchImage(from: imageURL) { [unowned self] result in

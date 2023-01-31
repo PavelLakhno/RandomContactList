@@ -72,16 +72,18 @@ class DataManager {
     func save(_ newUser: User) {
         let user = UserStorage(context: viewContext)
 
-        user.age = Int32(newUser.dob?.age ?? 0)
+        user.age = Int64(newUser.dob?.age ?? 0)
+        user.date = newUser.dob?.date
         user.firstName = newUser.name?.first
         user.lastName = newUser.name?.last
         user.email = newUser.email
         user.country = newUser.location?.country
         user.city = newUser.location?.city
+        user.state = newUser.location?.state
         user.gender = newUser.gender
         user.phone = newUser.phone
         user.streetName = newUser.location?.street?.name
-        user.streetNumber = Int32(newUser.location?.street?.number ?? 0)
+        user.streetNumber = Int64(newUser.location?.street?.number ?? 0)
         user.pictureLittle = newUser.picture?.thumbnail
         user.pictureLarge = newUser.picture?.large
 
