@@ -17,6 +17,8 @@
 		CE6C8B6E29811EF200400726 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6C8B6D29811EF200400726 /* Assets.xcassets */; };
 		CE6C8B7129811EF200400726 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE6C8B6F29811EF200400726 /* LaunchScreen.storyboard */; };
 		CE6C8B7D2981201300400726 /* RandomUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C8B7C2981201300400726 /* RandomUser.swift */; };
+		CE8E1831298BC8E200EA4319 /* DetailContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E1830298BC8E200EA4319 /* DetailContactViewModel.swift */; };
+		CE8E1833298BC8F500EA4319 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8E1832298BC8F500EA4319 /* ImageManager.swift */; };
 		CE9A1A10298527A100232527 /* RandomContactList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE9A1A0E298527A100232527 /* RandomContactList.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,8 @@
 		CE6C8B7029811EF200400726 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE6C8B7229811EF200400726 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE6C8B7C2981201300400726 /* RandomUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUser.swift; sourceTree = "<group>"; };
+		CE8E1830298BC8E200EA4319 /* DetailContactViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailContactViewModel.swift; sourceTree = "<group>"; };
+		CE8E1832298BC8F500EA4319 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		CE9A1A0F298527A100232527 /* RandomContactList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RandomContactList.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,6 +56,7 @@
 			children = (
 				CE47AC9F2985568E00F17EBA /* DataManager.swift */,
 				CE590DA62981275F009D96AE /* NetworkManager.swift */,
+				CE8E1832298BC8F500EA4319 /* ImageManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -83,6 +88,7 @@
 		CE6C8B6329811EF000400726 /* RandomContactList */ = {
 			isa = PBXGroup;
 			children = (
+				CE8E182B298BC5ED00EA4319 /* DetailContact */,
 				CE6C8B7B29811FF800400726 /* Models */,
 				CE6C8B7A29811F2200400726 /* ViewControllers */,
 				CE6C8B7929811F1600400726 /* App */,
@@ -117,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				CE590D9F29812294009D96AE /* ContactListViewController.swift */,
-				CE6C8B6829811EF000400726 /* DetailContactViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -128,6 +133,15 @@
 				CE6C8B7C2981201300400726 /* RandomUser.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CE8E182B298BC5ED00EA4319 /* DetailContact */ = {
+			isa = PBXGroup;
+			children = (
+				CE6C8B6829811EF000400726 /* DetailContactViewController.swift */,
+				CE8E1830298BC8E200EA4319 /* DetailContactViewModel.swift */,
+			);
+			path = DetailContact;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,9 +216,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE590DA72981275F009D96AE /* NetworkManager.swift in Sources */,
+				CE8E1833298BC8F500EA4319 /* ImageManager.swift in Sources */,
 				CE47ACA02985568E00F17EBA /* DataManager.swift in Sources */,
 				CE9A1A10298527A100232527 /* RandomContactList.xcdatamodeld in Sources */,
 				CE6C8B6929811EF000400726 /* DetailContactViewController.swift in Sources */,
+				CE8E1831298BC8E200EA4319 /* DetailContactViewModel.swift in Sources */,
 				CE590DA029812294009D96AE /* ContactListViewController.swift in Sources */,
 				CE6C8B6529811EF000400726 /* AppDelegate.swift in Sources */,
 				CE6C8B6729811EF000400726 /* SceneDelegate.swift in Sources */,

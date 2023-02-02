@@ -10,7 +10,7 @@
         <attribute name="gender" attributeType="String"/>
         <attribute name="lastName" attributeType="String"/>
         <attribute name="phone" attributeType="String"/>
-        <attribute name="pictureLarge" attributeType="String"/>
+        <attribute name="pictureLarge" optional="YES" attributeType="String"/>
         <attribute name="pictureLittle" attributeType="String"/>
         <attribute name="state" attributeType="String"/>
         <attribute name="streetName" attributeType="String"/>
