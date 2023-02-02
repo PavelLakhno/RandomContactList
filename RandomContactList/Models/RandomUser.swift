@@ -66,9 +66,9 @@ struct Name: Decodable {
 
 // MARK: - Picture
 struct Picture: Decodable {
-    let large, thumbnail: String?
+    let large, thumbnail: URL?
 
-    init(large: String, thumbnail: String) {
+    init(large: URL, thumbnail: URL) {
         self.large = large
         self.thumbnail = thumbnail
     }

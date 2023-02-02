@@ -13,7 +13,8 @@ protocol DetailContactViewModelProtocol {
     var age: String { get }
     var email: String { get }
     var phone: String { get }
-    var adressLabel: String { get }
+    var adress: String { get }
+    var imageData: Data? { get }
 
     init(user: User)
 }
@@ -36,8 +37,12 @@ class DetailContactViewModel: DetailContactViewModelProtocol {
         user.phone ?? ""
     }
     
-    var adressLabel: String {
+    var adress: String {
         "\(user.location?.country ?? ""), \(user.location?.city ?? "")"
+    }
+    
+    var imageData: Data? {
+        ImageManager.shared.fetchImageData(from: user.picture?.large)
     }
 
     private let user: User

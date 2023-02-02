@@ -17,34 +17,25 @@ class DetailContactViewController: UIViewController {
     @IBOutlet weak var adressLabel: UILabel!
     
     var result: User!
+    var viewModel: DetailContactViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setValues(with: result)
+        viewModel = DetailContactViewModel(user: result)
+        setValues()
     }
     
     override func viewWillLayoutSubviews() {
         userImageView.layer.cornerRadius = userImageView.bounds.height / 2
     }
     
-    private func setValues(with user: User) {
-        nameLabel.text = "\(user.name?.first ?? "") \(user.name?.last ?? "")"
-        ageLabel.text = "\(user.dob?.age ?? -1) years"
-        emailLabel.text = user.email
-        phoneLabel.text = user.phone
-        adressLabel.text = "\(user.location?.country ?? ""), \(user.location?.city ?? "")"
-        
-        if let imageURL = user.picture?.large {
-            NetworkManager.shared.fetchImage(from: imageURL) { [unowned self] result in
-                switch result {
-                case .success(let imageData):
-                    self.userImageView.image = UIImage(data: imageData)
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        }
-        
+    private func setValues() {
+        nameLabel.text = viewModel.name
+        ageLabel.text = viewModel.age
+        emailLabel.text = viewModel.email
+        phoneLabel.text = viewModel.phone
+        adressLabel.text = viewModel.adress
+        userImageView.image = UIImage(data: viewModel.imageData ?? Data())
     }
 }
 

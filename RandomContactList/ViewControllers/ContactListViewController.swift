@@ -64,18 +64,8 @@ extension ContactListViewController {
         content.text = contact.name?.first
         content.secondaryText = contact.name?.last
         
-        
-        if let imageURL = contact.picture?.thumbnail {
-            NetworkManager.shared.fetchImage(from: imageURL) { result in
-                switch result {
-                case .success(let imageData):
-                    content.image = UIImage(data: imageData)
-                    cell.contentConfiguration = content
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        }
+        let data = ImageManager.shared.fetchImageData(from: contact.picture?.thumbnail)
+        content.image = UIImage(data: data ?? Data())
 
         cell.contentConfiguration = content
         return cell
