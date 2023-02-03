@@ -42,7 +42,6 @@ class DataManager {
                 let lastName = data.value(forKey: "lastName") as? String ?? ""
                 let name = Name.init(first: firstName, last: lastName)
                 let email = data.value(forKey: "email") as? String ?? ""
-                //let pictureLittle = data.value(forKey: "pictureLittle") as? String ?? ""
                 let pictureLittle = data.value(forKey: "pictureLittle") as! URL
                 let pictureLarge = data.value(forKey: "pictureLarge") as! URL
                 let picture = Picture(large: pictureLarge, thumbnail: pictureLittle)

@@ -15,13 +15,11 @@ class DetailContactViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var adressLabel: UILabel!
-    
-    var result: User!
+
     var viewModel: DetailContactViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = DetailContactViewModel(user: result)
         setValues()
     }
     
