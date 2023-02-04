@@ -94,9 +94,9 @@
 		CE6C8B6329811EF000400726 /* RandomContactList */ = {
 			isa = PBXGroup;
 			children = (
+				CE6C8B7A29811F2200400726 /* ContactList */,
 				CE8E182B298BC5ED00EA4319 /* DetailContact */,
 				CE6C8B7B29811FF800400726 /* Models */,
-				CE6C8B7A29811F2200400726 /* ContactList */,
 				CE6C8B7929811F1600400726 /* App */,
 				CE590DA52981273D009D96AE /* Services */,
 				CE6C8B7829811F0500400726 /* Storyboards */,

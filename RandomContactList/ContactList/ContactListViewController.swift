@@ -11,7 +11,7 @@ class ContactListViewController: UITableViewController {
 
     private var viewModel: ContactListViewModelProtocol! {
         didSet {
-            viewModel.fetchUsersFromData { [weak self] in
+            viewModel.fetchUsersFromData() { [weak self] in
                 self?.tableView.reloadData()
             }
         }
@@ -48,27 +48,24 @@ extension ContactListViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath)
         guard let cell = cell as? ContactCell else { return UITableViewCell() }
         cell.viewModel = viewModel.getContactCellViewModel(at: indexPath)
-        print(cell.viewModel.userName)
         return cell
     }
 }
 
 // MARK: - UITableViewDelegate
 extension ContactListViewController {
-    /*
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            let user = contacts[indexPath.row]
-            DataManager.shared.delete(user: user)
-            contacts.remove(at: indexPath.row)
+            viewModel.removeContactCellViewModel(at: indexPath)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
-    */
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let currentUser = viewModel.getDetailContactViewModel(at: indexPath) //contacts[indexPath.row]
+        let currentUser = viewModel.getDetailContactViewModel(at: indexPath)
         performSegue(withIdentifier: Segues.showContact.rawValue, sender: currentUser)
     }
 }
@@ -77,12 +74,13 @@ extension ContactListViewController {
 extension ContactListViewController {
 
     @objc private func downloadData() {
-        
         viewModel.fetchUsersFromApi { [weak self] in
-            if self?.refreshControl != nil {
-                self?.refreshControl?.endRefreshing()
+            DispatchQueue.main.async {
+                if self?.refreshControl != nil {
+                    self?.refreshControl?.endRefreshing()
+                }
+                self?.tableView.insertRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
             }
-            self?.tableView.reloadData()
         }
     }
 
